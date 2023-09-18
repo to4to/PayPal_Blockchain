@@ -1,71 +1,45 @@
-
-
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.19;
 
-contract PayPal{
+contract PayPal {
+    //Defining Owner Of Contract
+    address public owner;
 
-//Defining Owner Of Contract
-address public owner;
+    constructor() {
+        owner = msg.sender;
+    }
 
-constructor() {
-    owner=msg.sender;
-}
+    //Struct mapping for request transaction and name
 
+    struct request {
+        address requestor;
+        uint amount;
+        string message;
+        string name;
+    }
 
-//Struct mapping for request transaction and name
+    struct sendReceive {
+        string action;
+        uint amount;
+        string message;
+        address otherPartyAddress;
+        string otherPArtyName;
+    }
 
-struct request{
-    address requestor;
-    uint amount;
-    string message;
-    string name; 
-}
+    struct userName {
+        string name;
+        bool hasName;
+    }
+    mapping(address => userName) names;
+    mapping(address => request[]) requests;
+    mapping(address => sendReceive[]) history;
+    //Adding a name to wallet address
 
-struct sendReceive{
-string action;
-uint amount;
-string message;
-address otherPartyAddress;
-string otherPArtyName;
+    //Creating a request
 
-}
+    //Paying To Request
 
-struct userName{
-    string name;
-    bool hasName;
-}
+    //Get All all request send to user
 
-
-mapping(address=>userName) names;
-mapping(address=>request[]) requests;
-mapping(address=>sendReceive[]) history;
-//Adding a name to wallet address
-
-
-
-
-//Creating a request
-
-
-
-
-
-//Paying To Request
-
-
-
-
-
-
-//Get All all request send to user
-
-
-
-
-//git history of transaction of user
-
-
-
-
+    //git history of transaction of user
 }
