@@ -6,7 +6,11 @@ pragma solidity 0.8.19;
 contract PayPal{
 
 //Defining Owner Of Contract
+address public owner;
 
+constructor() {
+    owner=msg.sender;
+}
 
 
 //Struct mapping for request transaction and name
