@@ -35,6 +35,14 @@ contract PayPal {
     mapping(address => sendReceive[]) history;
     //Adding a name to wallet address
 
+function addName(string memory _nmae) public {
+
+    
+    
+}
+
+
+
     //Creating a request
 
     //Paying To Request
