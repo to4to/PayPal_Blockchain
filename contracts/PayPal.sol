@@ -40,12 +40,24 @@ function addName(string memory _name) public {
     userName storage newUserName=names[msg.sender];
     newUserName.name=_name;
     newUserName.hasName=true;
-    
 }
 
 
 
     //Creating a request
+
+function createRequest(address user,uint _amount,string memory _message) public{
+
+
+
+
+
+
+}
+
+
+
+
 
     //Paying To Request
 
