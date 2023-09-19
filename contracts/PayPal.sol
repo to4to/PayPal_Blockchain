@@ -65,10 +65,27 @@ contract PayPal {
 
 
     function payRequest(uint _request) public payable{
+require(_request<requests[msg.sender].length,"no such request");
+request[] storage myRequests=requests[msg.sender];
+request storage payableRequest=myRequests[_request];
+
+
+
+
+uint toPay=payableRequest.amount*10e18;
+require(msg.value==(toPay),"Pay Correct Amount");
+
+
+payable(payableRequest.requestor).transfer(msg.value);
+
+    
+    }
+
+//Get All all request send to user
+
+    //git history of transaction of user
+
 
     }
 
-    //Get All all request send to user
-
-    //git history of transaction of user
-}
+    
