@@ -76,7 +76,18 @@ contract PayPal {
         myRequests.pop();
     }
 
+
+           
+
+
+
     //Get All all request send to user
+
+
+    
+
+
+
 
     //git history of transaction of user
 }
