@@ -77,7 +77,9 @@ contract PayPal {
     }
 
 
-           
+           function addHistory(address sender,address receiver,uint _amount,string memory _message) private {
+            
+           }
 
 
 
