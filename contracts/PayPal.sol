@@ -23,7 +23,7 @@ contract PayPal {
         uint amount;
         string message;
         address otherPartyAddress;
-        string otherPArtyName;
+        string otherPartyName;
     }
 
     struct userName {
@@ -79,6 +79,18 @@ contract PayPal {
 
            function addHistory(address sender,address receiver,uint _amount,string memory _message) private {
             
+sendReceive memory newSend;
+newSend.action='-';
+newSend.amount=_amount;
+newSend.message=_message;
+newSend.otherPartyAddress=receiver;
+
+
+if(names[receiver].hasName){
+newSend.otherPartyName=names[receiver].name;
+}
+history[sender].push(newSend);
+
            }
 
 
