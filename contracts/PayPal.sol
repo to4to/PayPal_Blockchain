@@ -76,32 +76,39 @@ contract PayPal {
         myRequests.pop();
     }
 
+    function addHistory(
+        address sender,
+        address receiver,
+        uint _amount,
+        string memory _message
+    ) private {
+        sendReceive memory newSend;
+        newSend.action = "-";
+        newSend.amount = _amount;
+        newSend.message = _message;
+        newSend.otherPartyAddress = receiver;
 
-           function addHistory(address sender,address receiver,uint _amount,string memory _message) private {
-            
-sendReceive memory newSend;
-newSend.action='-';
-newSend.amount=_amount;
-newSend.message=_message;
-newSend.otherPartyAddress=receiver;
+        if (names[receiver].hasName) {
+            newSend.otherPartyName = names[receiver].name;
+        }
+        history[sender].push(newSend);
 
 
-if(names[receiver].hasName){
-newSend.otherPartyName=names[receiver].name;
-}
-history[sender].push(newSend);
-
-           }
 
 
+         sendReceive memory newReceive;
+        newReceive.action = "+";
+        newReceive.amount = _amount;
+        newReceive.message = _message;
+        newReceive.otherPartyAddress = sender;
+
+        if (names[receiver].hasName) {
+            newReceive.otherPartyName = names[receiver].name;
+        }
+        history[sender].push(newReceive);
+    }
 
     //Get All all request send to user
-
-
-    
-
-
-
 
     //git history of transaction of user
 }
