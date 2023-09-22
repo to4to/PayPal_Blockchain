@@ -93,10 +93,7 @@ contract PayPal {
         }
         history[sender].push(newSend);
 
-
-
-
-         sendReceive memory newReceive;
+        sendReceive memory newReceive;
         newReceive.action = "+";
         newReceive.amount = _amount;
         newReceive.message = _message;
@@ -105,10 +102,18 @@ contract PayPal {
         if (names[receiver].hasName) {
             newReceive.otherPartyName = names[receiver].name;
         }
-        history[sender].push(newReceive);
+        history[receiver].push(newReceive);
     }
 
     //Get All all request send to user
+
+
+function getMyRequests()
+
+
+
+
+    
 
     //git history of transaction of user
 }
