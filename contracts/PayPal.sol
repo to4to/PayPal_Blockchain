@@ -107,13 +107,18 @@ contract PayPal {
 
     //Get All all request send to user
 
-
-function getMyRequests()
-
-
-
-
-    
+    function getMyRequests(
+        address user
+    )
+        public
+        view
+        returns (
+            address[] memory,
+            uint[] memory,
+            string[] memory,
+            string[] memory
+        )
+    {}
 
     //git history of transaction of user
 }
