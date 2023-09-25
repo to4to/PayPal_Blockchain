@@ -108,7 +108,7 @@ contract PayPal {
     //Get All all request send to user
 
     function getMyRequests(
-        address user
+        address _user
     )
         public
         view
@@ -118,7 +118,31 @@ contract PayPal {
             string[] memory,
             string[] memory
         )
-    {}
+    {
+
+
+address[] memory addrs=new address[](requests[_user].length);
+uint[] memory amnt=new uint[](requests[_user].length);
+string[] memory msge=new string[](requests[_user].length);
+string[] memory nme=new string[](requests[_user].length);
+
+
+
+for(uint i=0;i<requests[_user].length;i++){
+
+
+
+    request storage myRequests=requests[_user][i];
+    addrs[i]=myRequests.requestor;
+    amnt[i]=myRequests.amount;
+    msge[i]=myRequests.message;
+    nme[i]=myRequests.name;
+}
+
+
+
+return (addrs,amnt,msge,nme);
+    }
 
     //git history of transaction of user
 }
