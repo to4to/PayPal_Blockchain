@@ -119,30 +119,32 @@ contract PayPal {
             string[] memory
         )
     {
+        address[] memory addrs = new address[](requests[_user].length);
+        uint[] memory amnt = new uint[](requests[_user].length);
+        string[] memory msge = new string[](requests[_user].length);
+        string[] memory nme = new string[](requests[_user].length);
 
+        for (uint i = 0; i < requests[_user].length; i++) {
+            request storage myRequests = requests[_user][i];
+            addrs[i] = myRequests.requestor;
+            amnt[i] = myRequests.amount;
+            msge[i] = myRequests.message;
+            nme[i] = myRequests.name;
+        }
 
-address[] memory addrs=new address[](requests[_user].length);
-uint[] memory amnt=new uint[](requests[_user].length);
-string[] memory msge=new string[](requests[_user].length);
-string[] memory nme=new string[](requests[_user].length);
-
-
-
-for(uint i=0;i<requests[_user].length;i++){
-
-
-
-    request storage myRequests=requests[_user][i];
-    addrs[i]=myRequests.requestor;
-    amnt[i]=myRequests.amount;
-    msge[i]=myRequests.message;
-    nme[i]=myRequests.name;
-}
-
-
-
-return (addrs,amnt,msge,nme);
+        return (addrs, amnt, msge, nme);
     }
 
     //git history of transaction of user
+
+  function getMyHistory(address _user) public view returns(userName memory){
+    return names[_user];
+  }
+
+
+function getMyName(address _user) public view returns(userName memory){
+
+    return names[_user];
+}
+
 }
