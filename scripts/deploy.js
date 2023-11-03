@@ -1,23 +1,16 @@
-const hre= require("hardhat");
-
-
-async function main(){
-
-
-
-
-const Paypal= await hre.ethers.getContractFactory("PayPal");
-const paypal= await Lock.deploy();
-
-
-await paypal.deployed(); 
-
-
-
-console.log("Paypal deployed to:", paypal.address);
-
-
-
-
-
-}
+async function main() {
+    const [deployer] = await ethers.getSigners();
+  
+    console.log("Deploying contracts with the account:", deployer.address);
+  
+    const paypal = await ethers.deployContract("PayPal"); //HelloWorld= Your Contract Name
+  
+    console.log("Token address:", await paypal.getAddress());
+  }
+  
+  main()
+    .then(() => process.exit(0))
+    .catch((error) => {
+      console.error(error);
+      process.exit(1);
+    });
