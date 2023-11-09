@@ -27,7 +27,7 @@ app.get("/getNameAndBalance", async (req, res) => {
 
   const response = await Moralis.EvmApi.utils.runContractFunction({
     chain: "0x13881",
-    address: "Your Smart Contract",
+    address: "0x7bABdb950A168B213F3fB8511fB3EC51391A5245",
     functionName: "getMyName",
     abi: ABI,
     params: { _user: userAddress },
